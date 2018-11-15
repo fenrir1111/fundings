@@ -5,7 +5,7 @@ const compileContracts = require('./compile')
 const HDWalletProvider = require('truffle-hdwallet-provider')
 
 let mnemonic = 'poem keen border output life want tourist swarm cotton monkey panda battle'
-const provider = new HDWalletProvider(mnemonic,'https://mainnet.infura.io/v3/8df118de68934f93bdeef77c0673a6e4')
+const provider = new HDWalletProvider(mnemonic,'https://rinkeby.infura.io/v3/8df118de68934f93bdeef77c0673a6e4')
 
 const web3  = new Web3(provider)
 
@@ -22,7 +22,7 @@ deployFactory = async () => {
             from:accounts[0],
             gas:gas
         })
-    console.log(accounts[0])
+    // console.log(accounts[0])
     console.log(contractResult)
 
 

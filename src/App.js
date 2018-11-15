@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Container } from 'semantic-ui-react'
+import TabPanels from "./components/TabPanels";
+
+
 
 class App extends Component {
+  constructor(props){
+      super(props)
+      this.state = {
+          address:null
+      }
+  }
+
+  componentDidMount(){
+      //  获取当前的account账户信息
+  }
+
   render() {
     return (
-      <div className="App">
+      <Container className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+            <h1> 众筹辣辣 </h1>
+            <img src="https://api.gushi.ci/all.svg" alt="poem"/>
+            <br/>
+            <br/>
+            <p>您的地址是： 0x2342sdadf</p>
         </header>
-      </div>
+          <br/>
+          <TabPanels/>
+      </Container>
     );
   }
 }
