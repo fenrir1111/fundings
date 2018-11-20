@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Container } from 'semantic-ui-react'
 import TabPanels from "./components/TabPanels";
+import web3 from './utils/web3'
 
 
 
@@ -16,9 +16,19 @@ class App extends Component {
 
   componentDidMount(){
       //  获取当前的account账户信息
+      web3.eth.getAccounts()
+          .then(accounts => {
+              console.log(accounts)
+          this.setState({
+              address: accounts[0]
+          })
+
+            })
+          .catch(e =>  console.log.error(e))
   }
 
   render() {
+    const {address} = this.state
     return (
       <Container className="App">
         <header className="App-header">
@@ -26,7 +36,10 @@ class App extends Component {
             <img src="https://api.gushi.ci/all.svg" alt="poem"/>
             <br/>
             <br/>
-            <p>您的地址是： 0x2342sdadf</p>
+            {
+                address ? ( <p>您的地址是： {address}</p>) : '请登录后刷新页面'
+            }
+
         </header>
           <br/>
           <TabPanels/>
