@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Container } from 'semantic-ui-react'
 import TabPanels from "./components/TabPanels";
-import web3 from './utils/web3'
+import Api from "./utils/interaction";
 
 
 
@@ -16,7 +16,7 @@ class App extends Component {
 
   componentDidMount(){
       //  获取当前的account账户信息
-      web3.eth.getAccounts()
+         Api.getAccounts()
           .then(accounts => {
               console.log(accounts)
           this.setState({

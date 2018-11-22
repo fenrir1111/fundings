@@ -13,5 +13,8 @@ const fundingContract = new web3.eth.Contract(fundingABI)
 
 const contract = {
     factoryContract,
+    fundingContract
 }
+
+export default contract
 
